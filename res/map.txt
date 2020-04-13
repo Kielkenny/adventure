@@ -1,0 +1,23 @@
+# Kommentarzeile
+# ID=xx ==> eindeutige Raumnummer
+# Text=  ==> Raumbeschreibungstext
+# Dir= ==> Mögliche Richtungen und alternative Kommentare, wenn eine Richtung  nicht möglich ist
+# 1 2 3 4  5  6  7  8 9 10
+# N,S,W,O,NW,NO,SW,SO,U,D
+ID=1
+Text=Du kommst in einen Raum mit einer Nummer. Der Raum hat eine Größe und die Nummer ist 1.
+Dir=0,2,0,0,0,0,0,0,Du kannst nicht fliegen.,Das geht nicht
+ID=2
+Text=Dieser Raum, sieht aus, wie der Raum Nummer 2.
+Dies ist ein Zusatztext, das sollte passen.
+Dies ist die dritte Zeile.
+Dir=1,0,3,0,0,0,0,0,0,0
+ID=3
+Text=Dieser Raum ist die Nummer 3. Der hat eine Falltür.
+Dir=0,0,0,2,0,0,0,0,0,4
+ID=4
+Text=Dieser Raum ist die Nummer 4
+Dir=0,0,0,0,0,0,0,0,3,0
+ID=9999
+Text=this is a room which holds the items which are not currently in a room but will be placed later
+Dir=0,0,0,0,0,0,0,0,0,0

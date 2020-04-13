@@ -1,0 +1,16 @@
+Du kannst einfache Sätze eingeben wie zum Beispiel:
+    nimm den ball
+oder auch nur
+    nimm ball
+
+Um Dich zu bewegen, kannst du die Himmelsrichtungen eingeben:
+    N für Norden oder natürlich auch direkt Norden, aber du kannst alle Himmelsrichtungen abkürzen.
+    S für Süden, O für Osten, W für Westen, SO für Südosten und so weiter.
+
+    Manchmal kann es sein, dass du auch "Hoch" oder "Runter" gehen kannst.
+
+Mit Schau Ball z.B. kannst Du Dir einen Gegenstand genau anschauen. Vielleicht bekommst Du so Hinweise,
+wie Du ein Rätsel lösen kannst.
+
+Mit nur "Schau" bekommst Du die Beschreibung des Raumes wieder angezeigt.
+

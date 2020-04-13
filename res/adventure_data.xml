@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+    <items>
+        <item>
+            <id>3001</id>
+            <word>ball</word>
+            <look_text>Der Ball ist rot und hat die Größe eines Balles</look_text>
+            <takeable>True</takeable>
+            <word_use>Ball</word_use>
+            <room_text>Auf dem Boden liegt ein kleiner Ball.</room_text>
+            <in_room>1</in_room>
+        </item>
+        <item>
+            <id>3003</id>
+            <word>leiter</word>
+            <look_text>Die Leiter steht an der Wand und führt scheinbar nirgendwo hin.</look_text>
+            <takeable>False</takeable>
+            <word_use>Leiter</word_use>
+            <room_text>An der Wand steht eine Leiter. Die Leiter ist aus Aluminium
+                und hat Gumminoppen an den Enden.
+            </room_text>
+            <in_room>1</in_room>
+        </item>
+    </items>
+    <map>
+        <room>
+            <id>1</id>
+            <description>Du bist am Strand</description>
+            <exit name="N" room="2"/>
+            <exit name="U" room="Du kannst nicht fliegen"/>
+            <exit name="D" room="Das geht nicht"/>
+        </room>
+        <room>
+            <id>2</id>
+            <description>Du stehst vor einem Haus.</description>
+            <exit name="S" room="1"/>
+            <exit name="E" room="3"/>
+        </room>
+        <room>
+            <id>3</id>
+            <description>Du bist in einem Haus.</description>
+            <exit name="W" room="2"/>
+            <exit name="D" room="4"/>
+        </room>
+        <room>
+            <id>4</id>
+            <description>Du bist in einem Keller</description>
+            <exit name="U" room="3"/>
+        </room>
+        <room>
+            <id>9999</id>
+        </room>
+    </map>
+</data>
