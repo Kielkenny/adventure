@@ -267,7 +267,7 @@ class Game:
                     self.just_do_it(cmd)
                 else:
                     print(Responses.NO_IDEA)            # if no verb was found and no direction given
-#
+
 
 if __name__ == "__main__":
     great_game = Game()     # create the game object
