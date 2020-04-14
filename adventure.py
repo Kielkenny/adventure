@@ -138,7 +138,7 @@ class Game:
             if room.possible_exits[x] != 0:
                 possible.append(all_possible.directionList[x])
 
-        print(Responses.EXITS + str(possible) + "\n")
+        print(Responses.EXITS + ",".join(possible) + "\n")
 
     def move(self, com: Understood):
         """
@@ -258,6 +258,7 @@ class Game:
         last_room = -1
         while True:
             if last_room != self.ego.room:
+                last_room = self.ego.room
                 print(self.where_am_i().description)  # Room description only if rooms are changing.
                 item_list = []
                 for x in self.where_am_i().bag:
