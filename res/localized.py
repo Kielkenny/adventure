@@ -16,7 +16,9 @@ class Responses:
     NOT_POSSIBLE_TO_GO = "Du kannst nicht in diese Richtung gehen.\n"
     YOU_MOVED = "Du wechselst den Raum.\n"
     NO_IDEA = "Ich verstehe dich nicht. Versuche 'HILFE', um Vorschläge für mögliche Aktionen zu bekommen.\n"
-
+    YOU_DROP = "Du lässt {0!s} fallen."
+    NO_HAVE = "Du hast {0!s} nicht."
+    WHAT_TO_DROP = "Was soll ich ablegen?"
 
 
 

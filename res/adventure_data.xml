@@ -11,13 +11,21 @@
             <in_room>1</in_room>
         </item>
         <item>
+            <id>3002</id>
+            <word>knochen</word>
+            <look_text>Ein Saurierknochen wie es scheint.</look_text>
+            <takeable>True</takeable>
+            <word_use>Knochen</word_use>
+            <room_text>Ein Knochen ist hier zu sehen.</room_text>
+            <in_room>1</in_room>
+        </item>
+        <item>
             <id>3003</id>
             <word>leiter</word>
             <look_text>Die Leiter steht an der Wand und führt scheinbar nirgendwo hin.</look_text>
             <takeable>False</takeable>
             <word_use>Leiter</word_use>
-            <room_text>An der Wand steht eine Leiter. Die Leiter ist aus Aluminium
-                und hat Gumminoppen an den Enden.
+            <room_text>An der Wand steht eine Leiter. Die Leiter ist aus Aluminium und hat Gumminoppen an den Enden.
             </room_text>
             <in_room>1</in_room>
         </item>

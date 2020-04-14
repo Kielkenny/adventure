@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 import debug
 
 from res.localized import DirShorts
+SECRET_STORAGE = 9999
 
 # Class for rooms
 class Room:

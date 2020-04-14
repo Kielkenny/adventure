@@ -82,11 +82,11 @@ class Actions:
 class Game:
     def __init__(self):
         self.my_world = world.World()
-        #self.my_world.load_world(r".\res\map.txt")
+        # self.my_world.load_world(r".\res\map.txt")
         self.my_world.load_world_xml(r".\res\adventure_data.xml")
 
         self.ego = Player()
-        self.ego.move_to(3)
+        self.ego.move_to(1)
 
         self.pars = Adv_Parser()
         self.pars.load_words()
@@ -104,7 +104,7 @@ class Game:
         tree = ET.parse(r".\res\adventure_data.xml")
         root = tree.getroot()
 
-        #def __init__(self, id=0, desc="", take=True, name="", desc_room=""):
+        # def __init__(self, id=0, desc="", take=True, name="", desc_room=""):
 
         for child in root.iter("item"):
             ch_id = int(child.find("id").text)
@@ -113,16 +113,16 @@ class Game:
             ch_take = child.find("takeable").text
             ch_name = child.find("word_use").text
             ch_room = child.find("room_text").text
-            ch_inroom = int(child.find("in_room").text)
+            ch_in_room = int(child.find("in_room").text)
 
             w = Word(ch_word, 3, int(ch_id))  # Add to Wordlist
             self.pars.wordlist.append(w)
 
             item_to_add = Item(ch_id, ch_look, ch_take == "True", ch_name, ch_room)
-            if ch_inroom > 0:
-                self.my_world.find_room_by_id(ch_inroom).add_item(item_to_add)
+            if ch_in_room > 0:
+                self.my_world.find_room_by_id(ch_in_room).add_item(item_to_add)
             else:
-                self.my_world.find_room_by_id(9999).add_item(item_to_add)
+                self.my_world.find_room_by_id(world.SECRET_STORAGE).add_item(item_to_add)  #create items not in room yet
 
     def intro(self):
         """ prints the introduction text"""
@@ -194,15 +194,39 @@ class Game:
 
                 print(Responses.IS_NOT_HERE)
 
-        if com.verb_id == Actions.INV:  # Print inventory
+        # Print inventory
+        if com.verb_id == Actions.INV:
             self.print_inventory()
 
+        # exit the game
         if com.verb_id == Actions.END:
             quit()
 
+        # print help
         if com.verb_id == Actions.HELP:
             if com.obj1_id == 0:
                 self.print_help()
+
+        # drop action
+        if com.verb_id == Actions.DROP:
+            for obj_no in [com.obj1_id, com.obj2_id]:
+                if obj_no != 0:
+                    for inv in self.ego.bag:
+                        found = False
+                        if obj_no == inv.id: # I have the object
+                            self.where_am_i().bag.add(inv)  # add to room
+                            self.ego.bag.remove(inv) # remove from inventory
+                            print(Responses.YOU_DROP.format(inv.name))
+                            found = True
+                            break
+                        if not found:
+                            print(Responses.NO_HAVE.format(inv.name))
+
+            if com.obj1_id + com.obj2_id == 0:
+                print(Responses.WHAT_TO_DROP)
+
+
+
 
     def print_inventory(self):
         """
@@ -237,7 +261,9 @@ class Game:
                 print(self.where_am_i().description)  # Room description only if rooms are changing.
                 item_list = []
                 for x in self.where_am_i().bag:
-                    print(str(Responses.YOU_SEE) + x.name + ".")  #TODO change to long room text
+                    # print(str(Responses.YOU_SEE) + x.name + ".")
+                    print(x.description_room)
+
             self.print_directions(self.where_am_i())
 
             command = input(Responses.AND_NOW)      # Ask for command
@@ -263,7 +289,7 @@ class Game:
                 if cmd.dir_id != 0:  # move, if direction is filled ignore verb and object
                     last_room = self.where_am_i().id    # Save the current room in the last room variable
                     self.move(cmd)                      # Try to move the player
-                elif cmd.verb_id != 0:                  # do something, vound a verb
+                elif cmd.verb_id != 0:                  # do something, found a verb
                     self.just_do_it(cmd)
                 else:
                     print(Responses.NO_IDEA)            # if no verb was found and no direction given
