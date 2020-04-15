@@ -107,7 +107,9 @@ class Adv_Parser:
                     ud.is_question = (token.lemma_ == "?")
                     if ud.verb_id != 0 or ud.dir_id != 0: # return if at least a verb or a direction was found
                         return_commands.append(copy.deepcopy(ud))
+                    verb_save = ud.verb_id
                     ud.clear() # reset
+                    ud.verb_id = verb_save          # if case of multiple objects save verb
                 else:
                     wordtype, id = self.lookup_word(token.lemma_)
 

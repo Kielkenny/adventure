@@ -225,7 +225,8 @@ class Game:
             if com.obj1_id + com.obj2_id == 0:
                 print(Responses.WHAT_TO_DROP)
 
-
+    # ToDO handling of "and" without second verb.
+    # Todo information if something should be droped which we dont have similar with the take action
 
 
     def print_inventory(self):
