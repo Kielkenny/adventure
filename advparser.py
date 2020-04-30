@@ -109,7 +109,7 @@ class Adv_Parser:
                         return_commands.append(copy.deepcopy(ud))
                     verb_save = ud.verb_id
                     ud.clear() # reset
-                    ud.verb_id = verb_save          # if case of multiple objects save verb
+                    ud.verb_id = verb_save          # in case of multiple objects save verb
                 else:
                     wordtype, id = self.lookup_word(token.lemma_)
 

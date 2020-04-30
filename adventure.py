@@ -225,9 +225,32 @@ class Game:
             if com.obj1_id + com.obj2_id == 0:
                 print(Responses.WHAT_TO_DROP)
 
-    # ToDO handling of "and" without second verb.
-    # Todo information if something should be droped which we dont have similar with the take action
+        # inspect action
+        if com.verb_id == Actions.LOOK:
+            if (com.obj1_id == 0) and (com.obj2_id == 0):  # Look only "around"
+                print(Responses.GENERAL_LOOK)
+                return
 
+            for obj_no in [com.obj1_id, com.obj2_id]:
+                if obj_no != 0:
+                    description, obj_name = self.object_in_room_or_inventory(obj_no)
+                    if description != "":
+                       print(description)
+                    else:
+                        if obj_name != "":
+                            print(Responses.GENERAL_LOOK_AT.format(obj_name))
+                        else:
+                            print(Responses.GENERAL_LOOK)
+
+    def object_in_room_or_inventory(self, obj_no):
+        # Check in bag
+        for piece in self.ego.bag:
+            if piece.id == obj_no:
+                return piece.description, piece.name
+        for piece in self.where_am_i().bag:
+            if piece.id == obj_no:
+                return piece.description, piece.name
+        return "", ""
 
     def print_inventory(self):
         """

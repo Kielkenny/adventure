@@ -19,6 +19,8 @@ class Responses:
     YOU_DROP = "Du lässt {0!s} fallen."
     NO_HAVE = "Du hast {0!s} nicht."
     WHAT_TO_DROP = "Du legst Dich hin und Du stehst wieder auf."
+    GENERAL_LOOK = "Du schaust dich um, doch do siehst nichts spezielles."
+    GENERAL_LOOK_AT = "{0!s} sieht nicht besonders aus."
 
 
 
